@@ -4,8 +4,11 @@
 ## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
+##Generate m by assigning a NULL
   m<-NULL
+  ## set will be the starting function
   set<-function(y){
+  ## Assign to x the factor y
   x<<-y
   m<<-NULL
 }
@@ -23,10 +26,12 @@ list(set=set, get=get,
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
 		    m<-x$getmatrix()
+	## Identify if there were previous calculations
     if(!is.null(m)){
       message("getting cached data")
       return(m)
     }
+	## an predefined "Else"
     matrix<-x$get()
     m<-solve(matrix, ...)
     x$setmatrix(m)
